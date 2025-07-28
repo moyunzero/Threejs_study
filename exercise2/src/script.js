@@ -1,6 +1,16 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import * as dat from 'dat.gui'
+import * as lil from 'lil-gui'
+
+console.log(lil)
+
+/**
+ * Debug
+ */
+const gui = new dat.GUI();
+const lilgui = new lil.GUI();
 
 const cursor = {
     x:0,
@@ -19,7 +29,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Sizes
 const sizes = {
-    width: window.innerWidth,
+    width: window.innerWidth, 
     height: window.innerHeight
 }
 
@@ -56,11 +66,29 @@ window.addEventListener('dblclick',()=>{
 const scene = new THREE.Scene()
 
 // Object
+const geometry = new THREE.BoxGeometry(1, 1, 1)
+const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+
 const mesh = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    geometry,
+    material
 )
 scene.add(mesh)
+
+// Debug
+gui.add(mesh.position,'y').min(-3).max(3).step(0.01).name('elevation')
+gui.add(mesh,'visible')
+gui.add(material,'wireframe')
+const colorFormats = {
+	string: '#ffffff',
+	int: 0xffffff,
+	object: { r: 1, g: 1, b: 1 },
+	array: [ 1, 1, 1 ]
+};
+
+lilgui.addColor( colorFormats, 'string' ).onChange(()=>{
+    material.color.set(colorFormats.string)
+})
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
