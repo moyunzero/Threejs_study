@@ -44,7 +44,7 @@ fontLoader.load(
             '为往圣继绝学',
             '为万世开太平'
         ];
-        const lineHeight = 0.8;          // 每行间距
+        const lineHeight = 0.8;
         const material  = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
         // 创建一个 Group 来容纳所有文字
         const textGroup = new THREE.Group();
