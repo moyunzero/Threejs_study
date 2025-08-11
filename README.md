@@ -11,3 +11,15 @@
 | **3D Textures**   | 1200+ CC0 授权 PBR 贴图，含 Substance 源文件  | ✅ 可商用 | ❌ 无需注册 |
 | **TextureKing**   | 免费无缝纹理，适合快速下载使用                      | ✅ 可商用 | ❌ 无需注册 |
 | **Texturelabs**   | 高质量、可商用，界面友好                         | ✅ 可商用 | ❌ 无需注册 |
+
+
+// 3D physics
+- Ammo.js
+- Cannon.js
+- Oimo.js
+
+// 2D physics
+- Matter.js
+- P2.js
+- Planck.js
+- Box2D.js
